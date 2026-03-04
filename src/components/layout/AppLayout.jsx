@@ -1,5 +1,5 @@
 import Sidebar from "./Sidebar";
-import "../../AppLayout.css";
+import "../../App.css";
 
 export default function AppLayout({ children }) {
   return (

@@ -1,6 +1,8 @@
-import "../../AppLayout.css";
+import "../../App.css";
 import { NavLink } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
+import { IoMdLogOut } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   Folder,
@@ -15,6 +17,11 @@ import { MdDarkMode } from "react-icons/md";
 
 export default function Sidebar() {
   const { toggleTheme } = useTheme();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/");
+  };
 
   return (
     <div className="sidebar">
@@ -78,11 +85,17 @@ export default function Sidebar() {
 
       {/* Bottom User */}
       <div className="user">
-        <div className="avatar">A</div>
-        <div>
-          <p className="email">admin@edu.com</p>
-          <p className="role">Security Lead</p>
+        <div className="user-left">
+          <div className="avatar">A</div>
+          <div>
+            <p className="email">admin@edu.com</p>
+            <p className="role">Security Lead</p>
+          </div>
         </div>
+
+        <button className="logout-btn" onClick={handleLogout}>
+          <IoMdLogOut size={18} />
+        </button>
       </div>
     </div>
   );

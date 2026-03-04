@@ -21,7 +21,6 @@
   flex-direction: column;
 }
 
-/* TOP */
 .sidebar-top {
   display: flex;
   align-items: center;
@@ -35,9 +34,8 @@
   gap: 12px;
 }
 
-/* Outer teal circle */
 .logo-icon {
-  width: 28px; /* was 32px */
+  width: 28px;
   height: 28px;
   background: #14b8a6;
   border-radius: 50%;
@@ -46,15 +44,13 @@
   justify-content: center;
 }
 
-/* Inner white dot */
 .logo-dot {
-  width: 8px; /* was 10px */
+  width: 8px;
   height: 8px;
   background: white;
   border-radius: 50%;
 }
 
-/* Logo text */
 .logo-text {
   font-size: 16px;
   font-weight: 500;
@@ -63,7 +59,7 @@
 }
 
 .theme-toggle {
-  width: 32px; /* was 36px */
+  width: 32px;
   height: 32px;
   border-radius: 50%;
   border: none;
@@ -81,7 +77,6 @@
   background: var(--border-color);
 }
 
-/* NAVIGATION */
 .nav-links {
   display: flex;
   flex-direction: column;
@@ -93,10 +88,10 @@
   align-items: center;
   text-decoration: none;
   color: var(--text-secondary);
-  padding: 8px 12px; /* was 10px 14px */
-  font-size: 14px; /* add this */
+  padding: 8px 12px;
+  font-size: 14px;
   gap: 10px;
-  border-radius: 999px; /* pill style */
+  border-radius: 999px;
   transition: all 0.2s ease;
 }
 
@@ -105,23 +100,21 @@
   color: var(--text-primary);
 }
 
-/* ACTIVE LINK */
 .nav-links a.active {
   background: rgba(12, 200, 168, 0.15);
   color: #0cc8a8;
   font-weight: 500;
 }
 
-/* Divider */
 .divider {
   height: 1px;
   background: var(--border-color);
   margin: 12px 0;
 }
 
-/* USER SECTION */
 .user {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 12px;
   padding-top: 16px;
@@ -129,8 +122,28 @@
   margin-top: auto;
 }
 
+.user-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #f87171;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.logout-btn:hover {
+  color: #dc2626;
+}
+
 .avatar {
-  width: 32px; /* was 38px */
+  width: 32px;
   height: 32px;
   font-size: 14px;
   background: #facc15;
@@ -158,7 +171,6 @@
   flex-direction: column;
 }
 
-/* HEADER */
 .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -176,14 +188,12 @@
   color: var(--text-secondary);
 }
 
-/* Make Scan darker */
 .breadcrumb-main {
   color: var(--text-primary);
   font-size: 16px;
   font-weight: 600;
 }
 
-/* Home icon */
 .home-icon {
   font-size: 14px;
   color: var(--text-secondary);
@@ -418,8 +428,8 @@
   color: var(--text-primary);
   cursor: pointer;
   transition: 0.2s ease;
-  padding: 6px 12px; /* was 8px 14px / 8px 16px */
-  font-size: 12px; /* smaller text */
+  padding: 6px 12px;
+  font-size: 12px;
   border-radius: 6px;
 }
 
@@ -437,8 +447,8 @@
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s ease;
-  padding: 6px 12px; /* was 8px 14px / 8px 16px */
-  font-size: 12px; /* smaller text */
+  padding: 6px 12px;
+  font-size: 12px;
   border-radius: 6px;
 }
 
@@ -466,7 +476,7 @@
 }
 
 .vuln-badge {
-  padding: 3px 7px; /* was 4px 8px */
+  padding: 3px 7px;
   font-size: 11px;
   border-radius: 6px;
   font-weight: 600;
@@ -494,6 +504,7 @@
   padding: 12px 10px;
   border-bottom: 1px solid var(--border-color);
   color: var(--text-primary);
+  cursor: pointer;
 }
 
 .scan-row {
@@ -571,7 +582,6 @@
   padding: 10px;
 }
 
-/* Top Card */
 .scan-progress-card {
   display: flex;
   align-items: center;
@@ -581,7 +591,6 @@
   background: var(--bg-primary);
 }
 
-/* Circle */
 .progress-left {
   padding-right: 30px;
 }
@@ -679,7 +688,6 @@
   box-shadow: 0 0 0 6px rgba(20, 184, 166, 0.08);
 }
 
-/* Meta */
 .scan-meta {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -711,7 +719,6 @@
   overflow: hidden;
 }
 
-/* Header */
 .console-header {
   padding: 8px 20px;
   border-bottom: 1px solid var(--border-color);
@@ -752,17 +759,20 @@
   cursor: pointer;
 }
 
-/* Body */
 .console-body {
   display: flex;
+  height: 340px;
+}
+.log-content p {
+  margin-bottom: 10px;
 }
 
-/* Activity Log */
 .activity-log {
   flex: 2;
   border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .log-tabs {
@@ -790,6 +800,7 @@
   font-family: monospace;
   font-size: 11px;
   line-height: 1.6;
+  flex: 1;
 }
 
 .time {
@@ -799,7 +810,6 @@
   font-size: 12px;
 }
 
-/* Finding Log */
 .finding-log {
   flex: 1;
   padding: 10px;
@@ -860,4 +870,15 @@
 .desc {
   font-size: 12px;
   color: var(--text-secondary);
+}
+
+.log-content::-webkit-scrollbar,
+.finding-log::-webkit-scrollbar {
+  width: 6px;
+}
+
+.log-content::-webkit-scrollbar-thumb,
+.finding-log::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 10px;
 }

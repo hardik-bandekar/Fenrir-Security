@@ -1,5 +1,7 @@
 import { IoIosArrowDown } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
+import { activityLogs } from "../../data/liveConsoleData";
+import { findings } from "../../data/findingLogData";
 
 export default function LiveScanConsole() {
   return (
@@ -29,20 +31,11 @@ export default function LiveScanConsole() {
           </div>
 
           <div className="log-content">
-            <p>
-              <span className="time">[09:00:00]</span> I'll begin systematic
-              penetration testing...
-            </p>
-            <p>
-              <span className="time">[09:01:00]</span> Target is online.
-              Scanning ports...
-            </p>
-            <p>
-              <span className="time">[09:03:00]</span> Found login page...
-            </p>
-            <p>
-              <span className="time">[09:05:00]</span> Testing credentials...
-            </p>
+            {activityLogs.map((log, index) => (
+              <p key={index}>
+                <span className="time">[{log.time}]</span> {log.message}
+              </p>
+            ))}
           </div>
         </div>
 
@@ -50,50 +43,18 @@ export default function LiveScanConsole() {
         <div className="finding-log">
           <div className="finding-header">Finding Log</div>
 
-          <div className="finding-card critical">
-            <div className="finding-top">
-              <span className="badge critical">Critical</span>
-              <span className="time">10:45:23</span>
-            </div>
-            <div className="finding-card-title">
-              SQL Injection in Authentication Endpoint
-            </div>
-            <p className="endpoint">/api/users/profile</p>
-            <p className="desc">
-              Time-based blind SQL injection confirmed during authentication
-              flow.
-            </p>
-          </div>
+          {findings.map((item, index) => (
+            <div key={index} className={`finding-card ${item.severity}`}>
+              <div className="finding-top">
+                <span className={`badge ${item.severity}`}>{item.label}</span>
+                <span className="time">{item.time}</span>
+              </div>
 
-          <div className="finding-card high">
-            <div className="finding-top">
-              <span className="badge high">High</span>
-              <span className="time">10:45:23</span>
+              <div className="finding-card-title">{item.title}</div>
+              <p className="endpoint">{item.endpoint}</p>
+              <p className="desc">{item.desc}</p>
             </div>
-            <div className="finding-card-title">
-              Unauthorized Access to User Metadata
-            </div>
-            <p className="endpoint">/api/auth/login</p>
-            <p className="desc">
-              Authenticated low-privilege user was able to access metadata of
-              other users. Access control checks were missing.
-            </p>
-          </div>
-
-          <div className="finding-card medium">
-            <div className="finding-top">
-              <span className="badge medium">Medium</span>
-              <span className="time">10:45:23</span>
-            </div>
-            <div className="finding-card-title">
-              Broken Authentication Rate Limiting
-            </div>
-            <p className="endpoint">/api/search</p>
-            <p className="desc">
-              No effective rate limiting detected on login attempts. Automated
-              brute-force attempts possible.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </div>
